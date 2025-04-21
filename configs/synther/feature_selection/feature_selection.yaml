@@ -1,0 +1,31 @@
+defaults:
+  - _self_
+  - task: feature-selection-v0
+
+pipeline_name: synther_feature_selection
+mode: dataset_upsampling
+seed: 0
+device: cuda:0
+
+# SynthER
+solver: ddpm
+diffusion_steps: 128
+sampling_steps: 128
+predict_noise: True
+ema_rate: 0.999
+diffusion_learning_rate: 0.0003
+
+# Diffusion Training
+diffusion_gradient_steps: 100000
+batch_size: 256
+log_interval: 1000
+save_interval: 50000
+
+# Sampling
+use_ema: True
+ckpt: latest
+
+# hydra
+hydra:
+  job:
+    chdir: false
