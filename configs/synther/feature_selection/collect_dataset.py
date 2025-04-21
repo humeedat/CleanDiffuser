@@ -2,6 +2,7 @@ import numpy as np
 
 from cleandiffuser.env.feature_selection_env import FeatureSelectionEnv
 
+
 def collect_dataset(env, num_transitions=5000):
     dataset = {
         "observations": [],
